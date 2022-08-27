@@ -253,7 +253,7 @@ class Sub(commands.Cog):
     @commands.slash_command(name="yufu_yt", description="香港人Yufuさんの勝手に切り抜きした動画リンクを送信。")
     async def yufu_yt(self, interaction:discord.Interaction,
         movie:Option(str, "選んでください", choices=["ほんこんじん（編集済み）", "YUFUダイジェスト"])):
-        if int(interaction.author.id) in c.yufu_users:
+        if int(interaction.author.id) in c._users:
             await interaction.response.send_message("勝手に切り抜いてごめんなさい＞＜", ephemeral=True)
         if movie in ("ほんこんじん（編集済み）"):await interaction.response.send_message("https://youtu.be/pP_rrVc0KKY")
         else:await interaction.response.send_message("https://youtu.be/rKb0jmfE020")
