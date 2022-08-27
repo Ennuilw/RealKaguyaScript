@@ -1,0 +1,16 @@
+        try:
+            req= await self.bot.http.request(discord.http.Route("GET", "/guilds/{sid}", sid= guild.id))
+            banner_id= req["banner"]
+            if banner_id:
+                banner_url_png= f"https://cdn.discordapp.com/banners/{guild.id}/{banner_id}.png?size=1024"
+                banner_url_gif= f"https://cdn.discordapp.com/banners/{guild.id}/{banner_id}.gif?size=1024"
+                embed.set_image(url= banner_url_png)
+                embed.set_footer(text= f"By: {str(interaction.author)} ・Banner is png file")
+                b= Button(label="See on Gif",style=discord.ButtonStyle.green)
+            async def button_callback(interaction):
+                await interaction.response.send_message(banner_url_gif, view=None, ephemeral=True)
+            b.callback= button_callback
+            view=View()
+            view.add_item(b)
+            await interaction.respond(embed=embed, view=view)
+        except:
