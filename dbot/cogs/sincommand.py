@@ -36,7 +36,7 @@ class Sub(commands.Cog):
         for guild in self.bot.guilds:members += guild.member_count - 1
         embed= discord.Embed(title="About this bot", description="なぜか日本語と英語が入り混じってます。\n適当にスクリプト書いた。駄作です。<:Cirnohi:1010798243866755114>", color= 0x6dc1d1)
         embed.add_field(name= "Customers",value= f"> **Servers:** {str(len(self.bot.guilds))}\n> **Members:** {str(members)}", inline= False)
-        embed.add_field(name= "Support", value= f"> **Deveroper:** {user.mention}\n> **Source:** [Github](https://github.com/Ennuilw/-/tree/main)\n\
+        embed.add_field(name= "Support", value= f"> **Deveroper:** {user.mention}\n> **Source:** [Github](https://github.com/Ennuilw/RealKaguyaScript)\n\
             > **Our server:** ||[Click me](https://discord.gg/projectengage)||", inline= False)
         embed.set_footer(text=f"By: {str(interaction.author)}")
         await interaction.respond(embed=embed)
